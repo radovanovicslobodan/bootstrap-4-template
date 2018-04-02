@@ -63,7 +63,7 @@ gulp.task('browser-sync', function() {
 gulp.task('watch', function() {
 	gulp.watch('src/scss/**/*', ['sass', browserSync.reload]);
 	gulp.watch('src/html/pages/**/*', ['html']);
-	gulp.watch(['src/html/{layouts,includes,helpers,data}/**/*'], ['html:reset','html']);
+	gulp.watch(['src/html/{layouts, partials, helpers, data}/**/*'], ['html:reset','html']);
 });
 
 gulp.task('build', ['clean', 'copy', 'scripts', 'sass', 'html']);

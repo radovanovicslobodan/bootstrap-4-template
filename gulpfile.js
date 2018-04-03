@@ -5,6 +5,10 @@ var concat = require('gulp-concat');
 var panini = require('panini');
 var del = require('del');
 var browserSync = require('browser-sync').create();
+var environments = require('gulp-environments');
+
+var development = environments.development;
+var production = environments.production;
 
 gulp.task('clean', function(cb) {
 	del(['dist/*', '!dist', '!dist/assets'], cb);
@@ -22,9 +26,9 @@ var sassOptions = {
 
 gulp.task('sass', function() {
 	gulp.src(['src/scss/app.scss'])
-    	.pipe(sourcemaps.init())
+    	.pipe(development(sourcemaps.init()))
     	.pipe(sass(sassOptions).on('error', sass.logError))
-    	.pipe(sourcemaps.write())
+    	.pipe(development(sourcemaps.write()))
     	.pipe(gulp.dest('dist/css'));
 })
 

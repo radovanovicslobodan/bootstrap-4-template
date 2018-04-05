@@ -25,7 +25,7 @@ var sassOptions = {
 };
 
 gulp.task('sass', function() {
-	gulp.src(['src/scss/app.scss'])
+	gulp.src(['src/scss/main.scss'])
     	.pipe(development(sourcemaps.init()))
     	.pipe(sass(sassOptions).on('error', sass.logError))
     	.pipe(development(sourcemaps.write()))
@@ -67,7 +67,7 @@ gulp.task('browser-sync', function() {
 gulp.task('watch', function() {
 	gulp.watch('src/scss/**/*', ['sass', browserSync.reload]);
 	gulp.watch('src/html/pages/**/*', ['html']);
-	gulp.watch(['src/html/{layouts, partials, helpers, data}/**/*'], ['html:reset','html']);
+	gulp.watch(['src/html/{layouts,partials,helpers,data}/**/*'], ['html:reset','html']);
 });
 
 gulp.task('build', ['clean', 'copy', 'scripts', 'sass', 'html']);

@@ -4,8 +4,8 @@
   "description": "Bootstrap 4 Template",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "gulp build --env development",
+    "start": "gulp",
+    "dev": "gulp build --env development && gulp",
     "prod": "gulp build --env production"
   },
   "keywords": [],
